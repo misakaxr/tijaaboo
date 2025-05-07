@@ -1,3 +1,7 @@
+from flask import Flask
+
+app = Flask(__name__)
+
 class WarqadJacayl:
     def __init__(self):
         self.diray = "Hikma"
@@ -6,25 +10,35 @@ class WarqadJacayl:
         self.xaalad = "si waalan kuu jecel ❤️"
 
     def muujin(self):
-        print(f"Boqorkayga {self.qaata},\n")
-        print("Markii aan ku arkay, qalbigaygu wuxuu qaaday calan —")
-        print("Boolean noqday True oo aan weligiis False noqonin.\n")
+        return f"""
+        <pre>
+Boqorkayga {self.qaata},
 
-        print("Adigu waad tahay error-kii aanan rabin in aan qabto,\n"
-              "Bug aan diyaar u ahay in aan nolosheyda oo dhan xalliyo,\n"
-              "Loop aan jeclahay in aan marnaba joojin.\n")
+Markii aan ku arkay, qalbigaygu wuxuu qaaday calan —
+Boolean noqday True oo aan weligiis False noqonin.
 
-        print("Dhoolla-caddayntaadu waa syntax-ka aan ugu jecelahay,")
-        print("Joogitaankaaguna si qurux badan buu u compile-gareeyaa noloshayda.\n")
+Adigu waad tahay error-kii aanan rabin in aan qabto,
+Bug aan diyaar u ahay in aan nolosheyda oo dhan xalliyo,
+Loop aan jeclahay in aan marnaba joojin.
 
-        print("Haddii aan list ka  sameeyo dhammaan waxyaabaha aan jeclahay...")
-        print("Adigu waxaad noqon lahayd midka kaliya ee ku jira.\n")
+Dhoolla-caddayntaadu waa syntax-ka aan ugu jecelahay,
+Joogitaankaaguna si qurux badan buu u compile-gareeyaa noloshayda.
 
-        print("Adigoo ila jooga, daqiiqad walba waa si fiican loo indent gareeyey,")
-        print("Nolosheyduna waxay ku jirtaa block-keeda saxda ah.\n")
+Haddii aan list ka sameeyo dhammaan waxyaabaha aan jeclahay...
+Adigu waxaad noqon lahayd midka kaliya ee ku jira.
 
-        print(f"Si joogto ah waxa  kuu leh,\n{self.diray} 🐍")
+Adigoo ila jooga, daqiiqad walba waa si fiican loo indent gareeyey,
+Nolosheyduna waxay ku jirtaa block-keeda saxda ah.
 
-# Isticmaal
-warqad = WarqadJacayl()
-warqad.muujin()
+Si joogto ah waxa kuu leh,
+{self.diray} 🐍
+        </pre>
+        """
+
+@app.route('/')
+def show_love():
+    warqad = WarqadJacayl()
+    return warqad.muujin()
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
