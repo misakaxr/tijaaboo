@@ -4,8 +4,8 @@ app = Flask(__name__)
 
 class WarqadJacayl:
     def __init__(self):
-        self.diray = "Hikma"
-        self.qaata = "Abdiqani"
+        self.diray = "Aniga"
+        self.qaata = "Adiga"
         self.dareen = "aan dhammaad lahayn"
         self.xaalad = "si waalan kuu jecel ❤️"
 
